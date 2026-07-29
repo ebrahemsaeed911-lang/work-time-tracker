@@ -1,4 +1,4 @@
-# Work Time Tracker — حاسبة المرتب
+# Work Time Tracker 
 
 A progressive web app (PWA) for tracking attendance, calculating work hours, expected salary, and deductions. Supports PDF/CSV export and offline usage.
 
