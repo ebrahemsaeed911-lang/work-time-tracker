@@ -2,6 +2,8 @@
 
 A progressive web app (PWA) for tracking attendance, calculating work hours, expected salary, and deductions. Supports PDF/CSV export and offline usage.
 
+🔗 **Live Demo:** [work-time-tracker-ibrahim.vercel.app](https://work-time-tracker-ibrahim.vercel.app/)
+
 ## Features
 
 - Check In / Check Out tracking
