@@ -1,0 +1,147 @@
+.report-summary {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.report-summary .stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+}
+
+.report-summary .stat-card::before {
+  display: none;
+}
+
+.report-summary .stat-card:hover {
+  transform: none;
+}
+
+.report-summary .stat-label {
+  margin-bottom: 0;
+}
+
+.report-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.report-actions .btn {
+  flex: 1;
+}
+
+.report-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+  margin: -4px;
+  padding: 4px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.813rem;
+}
+
+.report-table th {
+  background: var(--bg-input);
+  padding: 12px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: right;
+  position: sticky;
+  top: 0;
+  white-space: nowrap;
+}
+
+.report-table th:first-child {
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.report-table th:last-child {
+  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+}
+
+.report-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: background var(--transition-fast);
+}
+
+.report-table tr:hover td {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+.report-table tr:last-child td {
+  border-bottom: none;
+}
+
+.report-period {
+  margin-bottom: 20px;
+}
+
+.date-range {
+  display: flex;
+  gap: 12px;
+}
+
+.date-range .form-group {
+  flex: 1;
+}
+
+.date-range .form-input {
+  width: 100%;
+}
+
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media print {
+  .app-nav,
+  .report-actions,
+  .page-header .btn-icon {
+    display: none !important;
+  }
+
+  .app-container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  .stat-card {
+    border: 1px solid #ddd;
+  }
+
+  .stat-card::before {
+    display: none;
+  }
+}

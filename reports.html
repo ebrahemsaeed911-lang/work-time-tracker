@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="تطبيق لتسجيل الحضور والانصراف وحساب ساعات العمل والمرتب">
+  <meta property="og:title" content="التقارير - Work Time Tracker">
+  <meta property="og:description" content="تطبيق لتسجيل الحضور والانصراف وحساب ساعات العمل والمرتب المتوقع والخصومات">
+  <meta property="og:url" content="https://work-time-tracker-ibrahim.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Work Tracker">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/icon.svg">
+  <title>التقارير - Work Time Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="page-header">
+      <div class="page-header-start">
+        <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+          <rect width="512" height="512" rx="100" fill="url(#lg)"/>
+          <circle cx="256" cy="200" r="80" stroke="#3b82f6" stroke-width="12" fill="none"/>
+          <path d="M256 240 L256 180" stroke="#3b82f6" stroke-width="10" stroke-linecap="round"/>
+          <path d="M256 180 L290 160" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
+          <path d="M180 340 Q256 420 332 340" stroke="#3b82f6" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <circle cx="380" cy="420" r="30" fill="#10b981"/>
+          <path d="M370 420 L382 432 L400 410" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#0f172a"/></linearGradient></defs>
+        </svg>
+        <h1 class="page-title">التقارير</h1>
+      </div>
+      <div class="page-header-end">
+        <button id="installBtn" class="btn-icon" style="display:none;" title="تثبيت التطبيق">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </button>
+        <a href="settings.html" class="btn-icon" title="الإعدادات">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="report-period">
+        <div class="date-range">
+          <div class="form-group">
+            <label class="form-label">من تاريخ</label>
+            <input type="date" id="reportDateFrom" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">إلى تاريخ</label>
+            <input type="date" id="reportDateTo" class="form-input">
+          </div>
+        </div>
+      </div>
+
+      <div class="card report-summary">
+        <div class="stat-card">
+          <span class="stat-label">إجمالي الساعات</span>
+          <span class="stat-value" id="reportTotalHours" style="font-size:1.25rem;">0 س</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">أيام العمل</span>
+          <span class="stat-value" id="reportWorkDays" style="font-size:1.25rem;">0 يوم</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">المرتب قبل الخصم</span>
+          <span class="stat-value text-success" id="reportExpectedSalary" style="font-size:1.25rem;">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">الخصومات</span>
+          <span class="stat-value text-danger" id="reportDeductions" style="font-size:1.25rem;">0</span>
+        </div>
+        <div class="stat-card full-width" style="border-color:var(--primary);">
+          <span class="stat-label">صافي المرتب</span>
+          <span class="stat-value text-primary" id="reportNetSalary" style="font-size:1.5rem;">0</span>
+        </div>
+      </div>
+
+      <div class="report-actions">
+        <button id="exportPDF" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16 13 8 13"/><line x1="16 17 8 17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          تصدير PDF
+        </button>
+        <button id="exportCSV" class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          تصدير CSV
+        </button>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">تفاصيل الشيفتات</h2>
+        <div class="report-table-wrapper">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>التاريخ</th>
+                <th>الحضور</th>
+                <th>الانصراف</th>
+                <th>المدة</th>
+                <th>ملاحظات</th>
+              </tr>
+            </thead>
+            <tbody id="reportShiftsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <nav class="app-nav" id="appNav">
+    <a href="dashboard.html" class="nav-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+      </svg>
+      <span>الرئيسية</span>
+    </a>
+    <a href="reports.html" class="nav-link active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      <span>التقارير</span>
+    </a>
+    <a href="settings.html" class="nav-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+      <span>الإعدادات</span>
+    </a>
+  </nav>
+
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/salary.js"></script>
+  <script src="js/deductions.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/reports.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

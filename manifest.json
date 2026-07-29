@@ -1,0 +1,43 @@
+{
+  "name": "Work Time Tracker",
+  "short_name": "WorkTracker",
+  "description": "تطبيق لتسجيل الحضور والانصراف وحساب ساعات العمل والمرتب",
+  "start_url": "dashboard.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["productivity", "business", "utilities"],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope": "./",
+  "serviceworker": {
+    "src": "service-worker.js",
+    "scope": "./"
+  }
+}
