@@ -1,0 +1,109 @@
+@use '../abstracts/global-mixins' as *;
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+.btn {
+  @include inline-flex-center;
+
+  gap: var(--space-2);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 0.938rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--on-primary);
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(var(--primary-rgb), 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success), var(--success-dark));
+  color: #fff;
+  box-shadow: 0 4px 16px var(--success-glow);
+}
+
+.btn-success:hover {
+  box-shadow: 0 6px 24px rgba(var(--success-rgb), 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, var(--warning), var(--warning-dark));
+  color: #fff;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+  color: #fff;
+  box-shadow: 0 4px 16px var(--danger-glow);
+}
+
+.btn-danger:hover {
+  box-shadow: 0 6px 24px rgba(var(--danger-rgb), 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border-color-solid);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.08);
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.1);
+  }
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.813rem;
+  min-height: 36px;
+}
+
+.btn-icon {
+  @include inline-flex-center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    transform: scale(1.05);
+  }
+}
+
+.btn-block {
+  width: 100%;
+}

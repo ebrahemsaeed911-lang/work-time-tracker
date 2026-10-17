@@ -1,0 +1,29 @@
+// ==========================================================================
+// Work Time Tracker — main stylesheet entry
+// Load order mirrors the original cascade: tokens → base → layout → components.
+// ==========================================================================
+
+// Base
+@use 'base/global-reset';
+@use 'base/global-theme';
+@use 'base/global-typography';
+@use 'base/global-elements';
+
+// Layout
+@use 'layout/app-container';
+@use 'layout/page-header';
+
+// Components
+@use 'components/button';
+@use 'components/card';
+@use 'components/form-field';
+@use 'components/badge';
+@use 'components/utility-classes';
+@use 'components/wheel-time-picker';
+@use 'components/empty-state';
+@use 'components/toast-notification';
+@use 'components/modal-dialog';
+@use 'components/keyframe-animations';
+
+// Navigation (loaded last to keep the original override order)
+@use 'layout/bottom-navigation';

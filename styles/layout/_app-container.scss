@@ -1,0 +1,38 @@
+// ==========================================================================
+// App container
+// ==========================================================================
+
+.app-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-bottom: calc(var(--nav-height) + 48px + env(safe-area-inset-bottom));
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 680px;
+    padding: 0 24px;
+    padding-bottom: calc(var(--nav-height) + 24px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 860px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1000px;
+  }
+}

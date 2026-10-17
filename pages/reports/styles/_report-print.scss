@@ -1,0 +1,42 @@
+// ==========================================================================
+// Reports — print styles
+// ==========================================================================
+
+@media print {
+  .app-nav,
+  .report-actions,
+  .page-header .btn-icon {
+    display: none !important;
+  }
+
+  .app-container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  .stat-card {
+    border: 1px solid #ddd;
+  }
+
+  .stat-card::before {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'global-variables' as *;
+
+// ==========================================================================
+// Functions
+// ==========================================================================
+
+/// Returns a named transition value from the `$transitions` map.
+/// @example transition('base') => 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+@function transition($key) {
+  @if not map.has-key($transitions, $key) {
+    @error 'Unknown transition `#{$key}`. Available: #{map.keys($transitions)}.';
+  }
+  @return map.get($transitions, $key);
+}
+
+/// Multiplies the base spacing unit (4px) by the given factor.
+@function space($factor) {
+  @return $space-1 * $factor;
+}

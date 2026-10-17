@@ -1,0 +1,101 @@
+@use '../abstracts/global-variables' as *;
+
+// ==========================================================================
+// CSS custom properties (design tokens exposed to the browser)
+// All colors live here and are consumed everywhere via var(--token).
+// ==========================================================================
+
+:root {
+  // Brand
+  --primary: #{$primary};
+  --primary-dark: #{$primary-dark};
+  --primary-light: #{$primary-light};
+  --primary-glow: #{$primary-glow};
+  --primary-rgb: #{$primary-rgb};
+  --on-primary: #{$on-primary};
+  --success: #{$success};
+  --success-dark: #{$success-dark};
+  --success-glow: #{$success-glow};
+  --success-rgb: #{$success-rgb};
+  --warning: #{$warning};
+  --warning-dark: #{$warning-dark};
+  --warning-rgb: #{$warning-rgb};
+  --danger: #{$danger};
+  --danger-dark: #{$danger-dark};
+  --danger-glow: #{$danger-glow};
+  --danger-rgb: #{$danger-rgb};
+
+  // Backgrounds
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --bg-card: #{$bg-card};
+  --bg-card-hover: #{$bg-card-hover};
+  --bg-input: #{$bg-input};
+  --bg-hover: #{$bg-hover};
+  --bg-card-rgb: #{$bg-card-rgb};
+  --overlay: #{$overlay};
+
+  // Text
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-muted: #{$text-muted};
+
+  // Borders, shadows
+  --border-color: #{$border-color};
+  --border-color-solid: #{$border-color-solid};
+  --shadow: #{$shadow};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-glow: #{$shadow-glow};
+
+  // Radii
+  --radius: #{$radius};
+  --radius-sm: #{$radius-sm};
+  --radius-xs: #{$radius-xs};
+
+  // Transitions & typography
+  --transition: #{$transition};
+  --transition-fast: #{$transition-fast};
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  // Layout
+  --nav-height: #{$nav-height};
+  --max-width: #{$max-width};
+
+  // Spacing scale
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --space-7: #{$space-7};
+  --space-8: #{$space-8};
+  --space-12: #{$space-12};
+}
+
+.light-mode {
+  --primary: #{$light-primary};
+  --primary-dark: #{$light-primary-dark};
+  --primary-light: #{$light-primary-light};
+  --primary-glow: #{$light-primary-glow};
+  --primary-rgb: #{$light-primary-rgb};
+  --on-primary: #{$light-on-primary};
+
+  --bg-primary: #{$light-bg-primary};
+  --bg-secondary: #{$light-bg-secondary};
+  --bg-card: #{$light-bg-card};
+  --bg-card-hover: #{$light-bg-card-hover};
+  --bg-input: #{$light-bg-input};
+  --bg-hover: #{$light-bg-hover};
+  --bg-card-rgb: 255, 255, 255;
+
+  --text-primary: #{$light-text-primary};
+  --text-secondary: #{$light-text-secondary};
+  --text-muted: #{$light-text-muted};
+
+  --border-color: #{$light-border-color};
+  --border-color-solid: #{$light-border-color-solid};
+  --shadow: #{$light-shadow};
+  --shadow-sm: #{$light-shadow-sm};
+  --shadow-glow: #{$light-shadow-glow};
+}

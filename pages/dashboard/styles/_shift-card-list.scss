@@ -1,0 +1,136 @@
+// ==========================================================================
+// Dashboard — shift cards
+// ==========================================================================
+
+.shift-card {
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 8px;
+  transition: all var(--transition);
+  cursor: pointer;
+
+  &.has-note {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), rgba(var(--primary-rgb), 0.03));
+    border-color: rgba(var(--primary-rgb), 0.25);
+    border-width: 1.5px;
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
+      border-color: rgba(var(--primary-rgb), 0.35);
+      box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.1);
+    }
+  }
+
+  &:hover {
+    border-color: rgba(var(--primary-rgb), 0.25);
+    box-shadow: 0 2px 12px rgba(var(--primary-rgb), 0.08);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  &.active .shift-card-details {
+    display: flex;
+  }
+}
+
+.shift-card-note-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.45);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.shift-card-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shift-card-date {
+  min-width: 64px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.shift-card-details {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.shift-card-time-label {
+  color: var(--text-muted);
+  font-size: 0.688rem;
+  font-weight: 500;
+}
+
+.shift-card-time-value {
+  font-weight: 700;
+  direction: ltr;
+  display: inline-block;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 0.813rem;
+}
+
+.shift-card-time-sep {
+  color: var(--border-color-solid);
+  font-size: 0.75rem;
+  margin: 0 2px;
+}
+
+.shift-card-duration {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  direction: ltr;
+  min-width: 56px;
+  text-align: center;
+  background: rgba(var(--primary-rgb), 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+.shift-card-actions {
+  display: flex;
+  gap: 2px;
+  margin-right: auto;
+
+  .btn-icon {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+
+    &:hover {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+    }
+  }
+
+  .btn-delete-shift:hover {
+    color: var(--danger);
+    background: rgba(var(--danger-rgb), 0.1);
+  }
+
+  .btn-edit-shift:hover {
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.1);
+  }
+}

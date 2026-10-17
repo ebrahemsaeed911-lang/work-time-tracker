@@ -1,0 +1,122 @@
+.apps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+.app-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.app-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+.app-card:hover {
+  box-shadow: var(--shadow), var(--shadow-glow);
+  border-color: rgba(var(--primary-rgb), 0.25);
+  transform: translateY(-2px);
+}
+
+.app-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.app-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.app-card-icon.work {
+  background: rgba(var(--primary-rgb), 0.12);
+  color: var(--primary);
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.1);
+}
+.app-card-icon.calc {
+  background: rgba(var(--success-rgb), 0.12);
+  color: var(--success);
+  box-shadow: 0 0 12px rgba(var(--success-rgb), 0.1);
+}
+.app-card-icon.noor {
+  background: rgba(var(--warning-rgb), 0.12);
+  color: var(--warning);
+  box-shadow: 0 0 12px rgba(var(--warning-rgb), 0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-card-name {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.app-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.app-features {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.app-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.813rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.app-features li svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.app-features li span {
+  color: var(--text-primary);
+}
+
+.app-version {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}/*# sourceMappingURL=more-apps-page.css.map */

@@ -1,0 +1,54 @@
+// ==========================================================================
+// Reports — table
+// ==========================================================================
+
+.report-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+  margin: -4px;
+  padding: 4px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.813rem;
+
+  th {
+    background: var(--bg-input);
+    padding: 12px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: right;
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+
+    &:first-child {
+      border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    }
+
+    &:last-child {
+      border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+    }
+  }
+
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: background var(--transition-fast);
+  }
+
+  tr:hover td {
+    background: rgba(var(--primary-rgb), 0.05);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}

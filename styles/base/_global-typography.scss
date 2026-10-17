@@ -1,0 +1,56 @@
+@use '../abstracts/global-mixins' as *;
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+.page-title {
+  font-size: clamp(1rem, 4.2vw, 1.25rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+
+  @include truncate;
+}
+
+.section-title {
+  font-size: 1.063rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.modal-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}

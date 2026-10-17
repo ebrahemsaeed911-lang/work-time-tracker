@@ -1,0 +1,33 @@
+// ==========================================================================
+// Empty state
+// ==========================================================================
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-muted);
+
+  svg {
+    margin-bottom: 16px;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.2));
+  }
+
+  h3 {
+    font-size: 1.063rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 0.813rem;
+    max-width: 260px;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+}

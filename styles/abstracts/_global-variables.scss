@@ -1,0 +1,109 @@
+// ==========================================================================
+// Design tokens (SCSS) — Dark Sand identity.
+// Source of truth mirrored into CSS custom properties in base/_global-theme.scss.
+// Palette: deep black surfaces + sand/beige accents. No purple/indigo.
+// ==========================================================================
+
+// --- Brand / semantic colors ---------------------------------------------
+$primary: #c8b28a;          // sand
+$primary-dark: #a98f63;     // deeper sand (hover / gradients)
+$primary-light: #e2d2b5;    // light sand
+$primary-glow: rgba(200, 178, 138, 0.25);
+$primary-rgb: 200, 178, 138;
+$on-primary: #17140e;       // dark text on sand surfaces
+
+$success: #7fa05b;          // muted sage (check-in)
+$success-dark: #648148;
+$success-glow: rgba(127, 160, 91, 0.28);
+$success-rgb: 127, 160, 91;
+
+$warning: #c9a15a;          // gold
+$warning-dark: #a8823f;
+$warning-rgb: 201, 161, 90;
+
+$danger: #c0705f;           // terracotta (check-out)
+$danger-dark: #9c5345;
+$danger-glow: rgba(192, 112, 95, 0.28);
+$danger-rgb: 192, 112, 95;
+
+$accent-gold: #c9a15a;
+
+// --- Surfaces (dark theme default) ---------------------------------------
+$bg-primary: #0a0a09;
+$bg-secondary: #121210;
+$bg-card: #1b1a17;
+$bg-card-hover: #221f1b;
+$bg-input: #141311;
+$bg-hover: #26231e;
+$bg-card-rgb: 27, 26, 23;
+$overlay: rgba(0, 0, 0, 0.7);
+
+// --- Text ----------------------------------------------------------------
+$text-primary: #f5f1e8;
+$text-secondary: #a7a195;
+$text-muted: #6f6a5f;
+
+// --- Borders / shadows ---------------------------------------------------
+$border-color: #302e28;
+$border-color-solid: #302e28;
+$shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+$shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.35);
+$shadow-glow: 0 0 40px rgba(200, 178, 138, 0.08);
+
+// --- Radii ---------------------------------------------------------------
+$radius: 18px;
+$radius-sm: 12px;
+$radius-xs: 8px;
+
+// --- Transitions ---------------------------------------------------------
+$transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Typography ----------------------------------------------------------
+$font-family: ('Segoe UI', system-ui, -apple-system, sans-serif);
+
+// --- Layout --------------------------------------------------------------
+$nav-height: 64px;
+$max-width: 480px;
+
+// --- Spacing scale -------------------------------------------------------
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 28px;
+$space-8: 32px;
+$space-12: 48px;
+
+// --- Light theme overrides (warm cream, bronze accent) -------------------
+$light-bg-primary: #f4efe4;
+$light-bg-secondary: #ffffff;
+$light-bg-card: #ffffff;
+$light-bg-card-hover: #fbf7ef;
+$light-bg-input: #f0eadf;
+$light-bg-hover: #eae2d3;
+
+$light-text-primary: #201c15;
+$light-text-secondary: #6b6558;
+$light-text-muted: #9a9284;
+
+$light-border-color: #e0d8c8;
+$light-border-color-solid: #e0d8c8;
+$light-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+$light-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.05);
+$light-shadow-glow: 0 0 40px rgba(138, 116, 72, 0.06);
+
+$light-primary: #8a7448;
+$light-primary-dark: #6f5c37;
+$light-primary-light: #a8916a;
+$light-primary-glow: rgba(138, 116, 72, 0.2);
+$light-primary-rgb: 138, 116, 72;
+$light-on-primary: #ffffff;
+
+// --- Named transitions (consumed by functions.transition()) --------------
+$transitions: (
+  'base': $transition,
+  'fast': $transition-fast,
+);

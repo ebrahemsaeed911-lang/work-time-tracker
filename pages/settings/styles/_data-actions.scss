@@ -1,0 +1,15 @@
+// ==========================================================================
+// Settings — data actions
+// ==========================================================================
+
+.data-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .btn {
+    justify-content: flex-start;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+  }
+}

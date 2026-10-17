@@ -1,0 +1,75 @@
+// ==========================================================================
+// Dashboard — attendance actions
+// ==========================================================================
+
+.attendance-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.attendance-btn-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attendance-actions .btn {
+  width: 100%;
+  padding: 16px 12px;
+  font-size: 0.938rem;
+  border-radius: var(--radius);
+  min-height: 56px;
+  font-weight: 700;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.btn-check-in {
+  background: linear-gradient(135deg, var(--success), var(--success-dark));
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(var(--success-rgb), 0.3);
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(var(--success-rgb), 0.45);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+.btn-check-out {
+  background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(var(--danger-rgb), 0.3);
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(var(--danger-rgb), 0.45);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+.btn-check-in:disabled,
+.btn-check-out:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: grayscale(0.3);
+}

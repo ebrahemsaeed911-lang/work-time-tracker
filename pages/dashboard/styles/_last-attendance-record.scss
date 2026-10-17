@@ -1,0 +1,64 @@
+// ==========================================================================
+// Dashboard — last attendance record
+// ==========================================================================
+
+.last-record {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition);
+
+  &:hover {
+    border-color: rgba(var(--primary-rgb), 0.2);
+
+    .last-record-icon {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.last-record-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+
+  &.in {
+    background: rgba(var(--success-rgb), 0.12);
+    color: var(--success);
+    box-shadow: 0 0 10px rgba(var(--success-rgb), 0.12);
+  }
+
+  &.out {
+    background: rgba(var(--danger-rgb), 0.12);
+    color: var(--danger);
+    box-shadow: 0 0 10px rgba(var(--danger-rgb), 0.12);
+  }
+}
+
+.last-record-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.last-record-label {
+  font-size: 0.688rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.last-record-time {
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}

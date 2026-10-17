@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a09">
+  <meta name="description" content="تطبيق لتسجيل الحضور والانصراف وحساب ساعات العمل والمرتب">
+  <meta property="og:title" content="الإعدادات - Work Time Tracker">
+  <meta property="og:description" content="تطبيق لتسجيل الحضور والانصراف وحساب ساعات العمل والمرتب المتوقع والخصومات">
+  <meta property="og:url" content="https://work-time-tracker-ibrahim.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Work Tracker">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="../../assets/icons/icon.svg">
+  <title>الإعدادات - Work Time Tracker</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="styles/settings-page.css">
+</head>
+<body>
+  <div class="app-container">
+    <header data-component="page-header" data-variant="settings" data-title="الإعدادات"></header>
+
+    <main>
+      <div class="settings-section">
+        <h2 class="settings-section-title">إعدادات المرتب</h2>
+        <div class="salary-settings">
+          <div class="form-group">
+            <label class="form-label" for="referenceHours">عدد الساعات المرجعية</label>
+            <input type="number" class="form-input" id="referenceHours" min="1" step="1" placeholder="مثال: 26">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="salaryAmount">المرتب لهذه الساعات</label>
+            <input type="number" class="form-input" id="salaryAmount" min="1" step="0.5" placeholder="مثال: 750">
+          </div>
+        </div>
+
+        <div class="salary-preview">
+          <div class="salary-preview-item">
+            <span class="salary-preview-label">عدد الساعات المرجعية</span>
+            <span class="salary-preview-value" id="refHoursPreview">—</span>
+          </div>
+          <div class="salary-preview-item">
+            <span class="salary-preview-label">المرتب الثابت</span>
+            <span class="salary-preview-value" id="salaryPreview">—</span>
+          </div>
+          <div class="salary-preview-item">
+            <span class="salary-preview-label">قيمة الساعة</span>
+            <span class="salary-preview-value" id="hourlyRatePreview">—</span>
+          </div>
+        </div>
+
+        <button id="saveSalary" class="btn btn-primary btn-block mt-16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+          </svg>
+          حفظ الإعدادات
+        </button>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="settings-section-title">الخصومات</h2>
+        <div class="flex justify-between items-center mb-16">
+          <span class="text-muted">إجمالي الخصومات: <strong class="text-danger" id="totalDeductions">0</strong></span>
+          <button id="addDeduction" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            إضافة خصم
+          </button>
+        </div>
+        <div class="deductions-list" id="deductionsList">
+          <div class="empty-state">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            <h3>لا توجد خصومات</h3>
+            <p>لم يتم إضافة أي خصومات بعد</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="settings-section-title">المظهر</h2>
+        <div class="theme-toggle-row">
+          <span class="theme-toggle-label">الوضع الليلي</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="settings-section-title">البيانات</h2>
+        <div class="data-actions">
+          <button id="newPeriodBtnSettings" class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            بدء فترة مرتب جديدة
+          </button>
+          <button id="addShiftBtn" class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            إضافة شيفت يدوي
+          </button>
+          <button id="exportData" class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            تصدير جميع البيانات
+          </button>
+          <button id="importData" class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            استيراد بيانات
+          </button>
+          <button id="clearData" class="btn btn-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            حذف جميع البيانات
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="settings-section-title">روابط</h2>
+        <div class="data-actions">
+          <a id="moreAppsBtn" class="btn btn-outline" href="../more-apps/more-apps-page.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            المزيد من تطبيقاتنا
+          </a>
+          <a id="contactBtn" class="btn btn-outline" href="https://wa.me/201099172483" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            تواصل معنا
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <nav data-component="bottom-navigation" data-active="settings"></nav>
+
+  <script type="module" src="settings-page.js"></script>
+</body>
+</html>

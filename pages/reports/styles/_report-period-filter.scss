@@ -1,0 +1,20 @@
+// ==========================================================================
+// Reports — period selector
+// ==========================================================================
+
+.report-period {
+  margin-bottom: 20px;
+}
+
+.date-range {
+  display: flex;
+  gap: 12px;
+
+  .form-group {
+    flex: 1;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+}

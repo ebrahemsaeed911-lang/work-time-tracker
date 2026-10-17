@@ -1,0 +1,19 @@
+// ==========================================================================
+// Reports — actions
+// ==========================================================================
+
+.report-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  .btn {
+    flex: 1;
+  }
+}
+
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

@@ -1,0 +1,27 @@
+// ==========================================================================
+// Offline page
+// ==========================================================================
+
+.offline-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.offline-container {
+  text-align: center;
+  padding: 32px;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 16px 0 8px;
+    font-weight: 800;
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "work-time-tracker",
+  "version": "3.0.0",
+  "description": "PWA for tracking attendance, work hours, expected salary and deductions. HTML5, CSS3 (SCSS), Vanilla JavaScript.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "sass --style=expanded --no-source-map styles/main.scss:css/main.css pages/dashboard/styles/dashboard-page.scss:pages/dashboard/styles/dashboard-page.css pages/reports/styles/reports-page.scss:pages/reports/styles/reports-page.css pages/settings/styles/settings-page.scss:pages/settings/styles/settings-page.css pages/more-apps/styles/more-apps-page.scss:pages/more-apps/styles/more-apps-page.css pages/offline/styles/offline-page.scss:pages/offline/styles/offline-page.css",
+    "watch:css": "sass --watch --no-source-map styles/main.scss:css/main.css pages/dashboard/styles/dashboard-page.scss:pages/dashboard/styles/dashboard-page.css pages/reports/styles/reports-page.scss:pages/reports/styles/reports-page.css pages/settings/styles/settings-page.scss:pages/settings/styles/settings-page.css pages/more-apps/styles/more-apps-page.scss:pages/more-apps/styles/more-apps-page.css pages/offline/styles/offline-page.scss:pages/offline/styles/offline-page.css",
+    "serve": "python -m http.server 5173"
+  },
+  "devDependencies": {
+    "sass": "^1.105.2"
+  }
+}
