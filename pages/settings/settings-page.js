@@ -475,33 +475,41 @@ class SettingsPage {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 
     ui.showToast('تم تصدير جميع البيانات', 'success');
   }
 
-  async _importData() {
+  _importData() {
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = '.json';
+    input.accept = '.json,application/json';
+    input.style.position = 'fixed';
+    input.style.left = '-9999px';
+    input.style.opacity = '0';
+
+    const cleanup = () => input.remove();
 
     input.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
+      const file = e.target.files && e.target.files[0];
+      if (!file) {
+        cleanup();
+        return;
+      }
 
       try {
-        const text = await file.text();
+        const text = await this._readFileText(file);
         const parsed = JSON.parse(text);
 
-        if (!parsed.version || !parsed.data) {
+        if (!parsed || typeof parsed !== 'object' || !parsed.version || !parsed.data) {
           ui.showToast('ملف غير صالح', 'error');
           return;
         }
 
         const d = parsed.data;
-        const shiftCount = d.shifts?.length || 0;
-        const dedCount = d.deductions?.length || 0;
-        const archiveCount = d.archives?.length || 0;
+        const shiftCount = Array.isArray(d.shifts) ? d.shifts.length : 0;
+        const dedCount = Array.isArray(d.deductions) ? d.deductions.length : 0;
+        const archiveCount = Array.isArray(d.archives) ? d.archives.length : 0;
 
         const confirmed = await ui.showModal(
           'استيراد البيانات',
@@ -512,45 +520,68 @@ class SettingsPage {
 
         if (!confirmed) return;
 
-        await storage.clearStore('shifts');
-        await storage.clearStore('deductions');
-        await storage.clearStore('attendance');
-        const allSettings = await storage.getAll('settings');
-        for (const s of allSettings) {
-          await storage.deleteItem('settings', s.key || s.id);
-        }
-
-        for (const shift of d.shifts || []) {
-          await storage.setItem('shifts', shift);
-        }
-        for (const ded of d.deductions || []) {
-          await storage.setItem('deductions', ded);
-        }
-        for (const record of d.attendance || []) {
-          await storage.setItem('attendance', record);
-        }
-        if (d.salary) {
-          await storage.setItem('settings', d.salary);
-        }
-        if (d.activePeriod) {
-          await storage.setItem('settings', d.activePeriod);
-        }
-        for (const mh of d.manualHours || []) {
-          await storage.setItem('settings', mh);
-        }
-        for (const arch of d.archives || []) {
-          await storage.setItem('settings', arch);
-        }
+        await this._applyImport(d);
 
         ui.showToast('تم استيراد البيانات بنجاح', 'success');
-        this._renderDeductions();
+        await this._renderDeductions();
         await this._loadSettings();
-      } catch {
+      } catch (err) {
+        console.error('Import failed:', err);
         ui.showToast('فشل استيراد الملف', 'error');
+      } finally {
+        cleanup();
       }
     });
 
+    document.body.appendChild(input);
     input.click();
+  }
+
+  _readFileText(file) {
+    if (typeof file.text === 'function') {
+      return file.text();
+    }
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsText(file);
+    });
+  }
+
+  async _applyImport(d) {
+    const normRecords = (records) =>
+      Array.isArray(records) ? records.filter((r) => r && typeof r === 'object') : [];
+
+    await storage.clearStore('shifts');
+    await storage.clearStore('deductions');
+    await storage.clearStore('attendance');
+
+    const allSettings = await storage.getAll('settings');
+    for (const s of allSettings) {
+      await storage.deleteItem('settings', s.key || s.id);
+    }
+
+    for (const shift of normRecords(d.shifts)) {
+      await storage.setItem('shifts', shift.id ? shift : { ...shift, id: ui.generateId() });
+    }
+    for (const ded of normRecords(d.deductions)) {
+      await storage.setItem('deductions', ded.id ? ded : { ...ded, id: ui.generateId() });
+    }
+    for (const record of normRecords(d.attendance)) {
+      await storage.setItem('attendance', record.id ? record : { ...record, id: ui.generateId() });
+    }
+
+    const settingsItems = [];
+    if (d.salary) settingsItems.push(d.salary);
+    if (d.activePeriod) settingsItems.push(d.activePeriod);
+    settingsItems.push(...normRecords(d.manualHours), ...normRecords(d.archives));
+
+    for (const item of settingsItems) {
+      if (item && item.key) {
+        await storage.setItem('settings', item);
+      }
+    }
   }
 }
 
